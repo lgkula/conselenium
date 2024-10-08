@@ -3,6 +3,9 @@
 
 name: Node.js CI
 
+env:
+  SECRET_PASSWORD: ${{ secrets.SECRET_GITHUB_PASSWORD }}
+
 on:
   push:
     branches: [ "master" ]
