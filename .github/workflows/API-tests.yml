@@ -5,6 +5,7 @@ name: Node.js CI
 
 env:
   SECRET_PASSWORD: ${{ secrets.SECRET_GITHUB_PASSWORD }}
+  SECRET_USER: ${{ secrets.SECRET_GITHUB_USER }}
 
 on:
   push:
