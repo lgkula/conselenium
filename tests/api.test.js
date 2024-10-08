@@ -65,6 +65,13 @@ describe('API tests', () => {
     const response = await spec()
       .delete(`${baseUrl}/BookStore/v1/Books?UserId=${userId}`)
       .withBearerToken(token)
+      .retry({
+        count: 2,
+        delay: 2000,
+        strategy: ({ res }) => {
+          return res.statusCode === 204;
+        },
+      });
       
     //   .inspect();
     expect(response.statusCode).to.eql(204);
